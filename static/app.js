@@ -1,4 +1,4 @@
-const API_BASE = ''; // Flask default
+const API_BASE = 'https://create-todo-task-project.onrender.com'; // Flask default
 const token = localStorage.getItem('token');
 
 // ---------- Login ----------
@@ -52,7 +52,7 @@ function logout() {
 }
 
 // ---------- Load Todos ----------
-if (window.location.pathname.endsWith('index.html')) {
+if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
   if (!token) {
     window.location.href = 'login.html';
   } else {
@@ -63,7 +63,8 @@ if (window.location.pathname.endsWith('index.html')) {
 function fetchTodos() {
   fetch(`${API_BASE}/todos`, {
     headers: {
-      'Authorization': `Bearer ${token}`
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
     }
   })
     .then(res => res.json())
