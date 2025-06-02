@@ -1,4 +1,4 @@
-const API_BASE = 'https://create-todo-task-project.onrender.com'; // Flask default
+const API_BASE = ''; // Flask default
 const token = localStorage.getItem('token');
 
 // ---------- Login ----------
